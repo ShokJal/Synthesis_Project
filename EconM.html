@@ -21,7 +21,7 @@ Google fonts api stuff
 <link href='https://fonts.googleapis.com/css?family=Calibri' rel='stylesheet'>
 
 <meta name="author" content="Shokhrukh Jalilov" />
-
+<meta name="date" content="2019-08-01" />
 <title>Predicting linkages between women’s labour and the economy using machine learning</title>
 
 
@@ -315,6 +315,20 @@ font-size: 20pt;
   height: 170px;
   border-radius: 50%;
 }
+
+@media print {
+  .anim {
+    display:none !important ;
+  }
+}
+
+@media screen {
+  .hardcopy {
+    display:none !important;
+  }
+}
+
+
 </style>
 
 
@@ -333,7 +347,7 @@ font-size: 20pt;
 <h1 id="title">Predicting linkages between women’s labour and the economy using machine learning</h1>
 <h2 id="subtitle"></h2>
 <h3 id="author"><strong>Shokhrukh Jalilov</strong></h3>
-<h5 id="affiliation"><i class='fab fa-github'></i> <a href="<a href="https://github.com/ShokJal/Gender_M" class="uri">https://github.com/ShokJal/Gender_M</a>"><a href="https://github.com/ShokJal/Gender_M" class="uri">https://github.com/ShokJal/Gender_M</a></a> </h5>
+<h5 id="affiliation"><i class='fab fa-github'></i> <a href="www.github.com/ShokJal/Gender_M">www.github.com/ShokJal/Gender_M</a> </h5>
 
 </div>
 </div>
@@ -353,18 +367,23 @@ font-size: 20pt;
 </div>
 <div id="my-synthesis-project" class="section level2">
 <h2>My Synthesis Project</h2>
-<p>Past academic studies that have looked into cross-country data indicated that the relationship between women’s labour participation (WLPR) and economic development is linear or curvilinear. This relationship is expressed in the popular U-shaped hypothesis which presumes a kind of trade-off between economic growth and women’s labour participation in the course of a countryâs development (figure below).</p>
-<p><img src="EconM_files/figure-html/unnamed-chunk-1-1.gif" style="display: block; margin: auto;" /></p>
+<p>Past academic studies that have looked into cross-country data indicated that the relationship between women’s labour participation (WLPR) and economic development is linear or curvilinear. This relationship is expressed in the popular U-shaped hypothesis which presumes a kind of trade-off between economic growth and women’s labour participation in the course of a country’s development (figure below).</p>
+<p><img src="EconM_files/figure-html/unnamed-chunk-1-1.gif" class="anim" style="display: block; margin: auto;" /></p>
+<p><img src="EconM_files/figure-html/unnamed-chunk-2-1.png" width="80%" class="hardcopy" style="display: block; margin: auto;" /></p>
 <p><strong>Objective of the project is to use machine learning (ML) technique to predict drivers of WLPR (with Principal Component and Exploratory Factor Analysis) and its linkage with GDP per capita across countries.</strong></p>
 </div>
 <div id="my-digital-toolbox" class="section level2">
 <h2>My Digital Toolbox</h2>
 <p>The project has been divided into three stages:</p>
-<p><strong>Stage 1. Data processing.</strong> The dataset obtained from the World Development Indicators. It covers 183 countries for 1990-2016 (383 features). Data processing included: data tidying and handling missing data (MD). Variables with &gt;20% MD have been deleted (81 features retained). The rest MD have been imputed by Multiple Imputation by Chained Equations (MICE) technique with Classification and Regression Tree method (CART, m=5,maxit=50). However, MICE has limitation in data imputation (figure below show before and after MICE, yellow indicates MD). Therefore, for the rest MD mean value imputation has been used.</p>
-<p><img src="resources/img/Both.JPG" width="1200"/></p>
-<p><strong>Stage 2. Data scaling and normalization.</strong> Fertility rate, men’s labour participation and GDP per capita were identified as main drivers of WLPR. To employ ML algorithm in the next stage data must be scaled and normalized. Thus, identified drivers have been scaled by three techniques (standard, min-max and robust).</p>
+<p><strong>Stage 1. Data processing.</strong>
+The dataset obtained from the World Development Indicators. It covers 183 countries for 1990-2016 (383 features). Data processing included: data tidying and handling missing data (MD). Variables with &gt;20% MD have been deleted (81 features retained). The rest MD have been imputed by Multiple Imputation by Chained Equations (MICE) technique with Classification and Regression Tree method (CART, m=5,maxit=50). However, MICE has limitation in data imputation (figure below show before and after MICE, yellow indicates MD). Therefore, for the rest MD mean value imputation has been used.</p>
+<p><img src="resources/img/Both.JPG" width="1200"/>
+<br/>
+<strong>Stage 2. Data scaling and normalization.</strong>
+Fertility rate, men’s labour participation and GDP per capita were identified as main drivers of WLPR. To employ ML algorithm in the next stage data must be scaled and normalized. Thus, identified drivers have been scaled by three techniques (standard, min-max and robust).</p>
 <p><img src="resources/img/scal.JPG" width="1300"></p>
-<p><strong>Stage 3. Machine learning algoritm application.</strong> Regression technique has been used to predict WLPR based on GDP per capita with different training and testing sample size. The most representative with 70/30 ratio yielded RMS=53.6 (orange are predicted values).</p>
+<p><strong>Stage 3. Machine learning algoritm application.</strong>
+Regression technique has been used to predict WLPR based on GDP per capita with different training and testing sample size. The most representative with 70/30 ratio yielded RMS=53.6 (orange are predicted values).</p>
 <p><img src="resources/img/World.png" width="1100"></p>
 <p>R packages (tidyverse, dplyr, ggplot2, psych, gridExtra, ggpubr, data.table, pairedData, mice, VIM) was used in the first stage and Python packages (pandas, numpy, sklearn, matplotlib, seaborn, ggplot, plotly) in the second and third stages.</p>
 </div>
