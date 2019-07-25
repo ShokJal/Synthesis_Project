@@ -62,7 +62,7 @@ s + transition_time(year, range = c(1990L, 2016L)) +
   labs(title = "Year: {frame_time}")
 ```
 
-```{r, out.extra='class="hardcopy"', out.width="80%"}
+```{r, out.extra='class="hardcopy"', out.width="100%"}
 data_anime %>% 
   filter(year == 2015) %>% 
   ggplot(aes(x=log10(LogGDPcap), y=FLPR)) + 
